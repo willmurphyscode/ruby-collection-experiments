@@ -3,7 +3,7 @@ class CaseInsensitiveHash
     @hsh = {}
   end
 
-  def fetch_insensitive(key)
+  def get(key)
     raise ArgumentError unless key.respond_to?(:to_s)    
     @hsh[key.to_s.downcase.to_sym]
   end
@@ -14,6 +14,6 @@ class CaseInsensitiveHash
     @hsh[actual_key] = value
   end
 
-  alias [] fetch_insensitive
+  alias [] get
   alias []= set
 end
